@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe "static_pages/home.html.erb", :type => :view do
+RSpec.describe "static_pages/home.html.erb", type: :view do
   include Capybara::DSL
 
   it "has welcome text" do
