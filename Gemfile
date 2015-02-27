@@ -33,3 +33,10 @@ end
 group :development do
   gem "better_errors"
 end
+
+group :production do
+  gem "pg"
+  gem "rails12factor"
+end
+
+ruby "2.1.2"
