@@ -1,42 +1,56 @@
 <div class="container">
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Stravify", "#", id: "logo" %>
-  </div>
-</header>
-<body>
-<div="container">
-  <div="row">
-    <div class="col-md-5 col-md-offset-1 front-page-text">
-      <h2>Welcome to Stravify</h2>
-      <p>Bacon ipsum dolor amet venison leberkas pork chop,
-      sirloin pancetta kielbasa doner spare ribs boudin. Swine
-      cow biltong t-bone, ball tip shoulder landjaeger kevin
-      turkey ham hock jowl corned beef cupim kielbasa bresaola.
-      Pork chop bresaola meatloaf andouille. Shank tri-tip beef
-      venison, pastrami fatback filet mignon. Jowl ham hock cow
-      tail, ham cupim jerky short loin boudin andouille bacon
-      flank tongue pig turkey.</p>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Stravify", "#", id: "logo" %>
+    </div>
+  </header>
+  <body>
+  <div="container">
+    <div="row">
+      <div class="col-md-5 col-md-offset-1 front-page-text">
+        <h2>Welcome to Stravify</h2>
+        <p>Bacon ipsum dolor amet venison leberkas pork chop,
+        sirloin pancetta kielbasa doner spare ribs boudin. Swine
+        cow biltong t-bone, ball tip shoulder landjaeger kevin
+        turkey ham hock jowl corned beef cupim kielbasa bresaola.
+        Pork chop bresaola meatloaf andouille. Shank tri-tip beef
+        venison, pastrami fatback filet mignon. Jowl ham hock cow
+        tail, ham cupim jerky short loin boudin andouille bacon
+        flank tongue pig turkey.</p>
 
 
-      <p>Sausage brisket capicola ribeye. Ham hock boudin short
-      ribs bresaola, tri-tip bacon leberkas. Cow ham corned beef
-      capicola filet mignon spare ribs. Ribeye tenderloin jerky
-      salami, kevin alcatra biltong shankle. Turducken
-      prosciutto pastrami, tail flank drumstick landjaeger.
-      Corned beef beef ribs jerky chicken short loin shankle
-      spare ribs. Fatback tri-tip pancetta, tail jowl venison
-      flank kevin short ribs.</p>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-1 log-in">
-        <h1> USER LOG IN </h1>
+        <p>Sausage brisket capicola ribeye. Ham hock boudin short
+        ribs bresaola, tri-tip bacon leberkas. Cow ham corned beef
+        capicola filet mignon spare ribs. Ribeye tenderloin jerky
+        salami, kevin alcatra biltong shankle. Turducken
+        prosciutto pastrami, tail flank drumstick landjaeger.
+        Corned beef beef ribs jerky chicken short loin shankle
+        spare ribs. Fatback tri-tip pancetta, tail jowl venison
+        flank kevin short ribs.</p>
       </div>
-      <div class="col-md-4 col-md-offset-1 sign-up">
-        <h1> USER SIGN UP</h1>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-1 log-in">
+          <%= form_for :login, url: "#" do |f| %>
+            <div class="row">
+              <div class="form-group" id="usernameform">
+                <%= f.label :emailinput, "Username" %>
+                <%= f.text_field :username, :placeholder => 'username', class: "form-control", id: "emailinput" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group" id="passwordform">
+                <%= f.label :passwordinput, "Password" %>
+                <%= f.password_field :password, placeholder: "password", class: "form-control ", id: "passwordinput"%>
+                <%= f.submit "Log In", class: "btn btn-primary center-block", id: "loginbutton" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-4 col-md-offset-1 sign-up">
+          <h1> USER SIGN UP</h1>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</body>
+  </body>
 </div>
