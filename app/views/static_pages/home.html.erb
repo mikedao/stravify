@@ -30,24 +30,7 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-md-offset-1 log-in">
-          <%= form_for :login, url: "#" do |f| %>
-            <div class="row">
-              <div class="form-group" id="usernameform">
-                <%= f.label :emailinput, "Username" %>
-                <%= f.text_field :username, :placeholder => 'username', class: "form-control", id: "emailinput" %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group" id="passwordform">
-                <%= f.label :passwordinput, "Password" %>
-                <%= f.password_field :password, placeholder: "password", class: "form-control ", id: "passwordinput"%>
-                <%= f.submit "Log In", class: "btn btn-primary center-block", id: "loginbutton" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-md-4 col-md-offset-1 sign-up">
-          <h1> USER SIGN UP</h1>
+          <%= link_to image_tag("loginwithstrava.png"), test_user_path, class: "strava-button text-center img-responsive" %>
         </div>
       </div>
     </div>
