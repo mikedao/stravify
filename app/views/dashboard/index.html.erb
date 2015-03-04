@@ -1,0 +1,22 @@
+<div class="container">
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Stravify", "#", id: "logo" %>
+    </div>
+  </header>
+  <body>
+  <div="container">
+    <div="row">
+      <div class="col-md-6 col-md-offset-1 user-page-data">
+        <%= image_tag "lastride.jpg", class: "user-data-img img-responsive" %>
+      </div>
+      <div class="col-md-3 col-md-offset-1 user-box">
+        User Profile
+        <%= image_tag current_user.profile, class: "sad-scott img-responsive" %>
+        <p> <%= "#{current_user.first_name} #{current_user.last_name}"%> </p>
+        <p> <%= "#{current_user.city}, #{current_user.state} #{current_user.country}" %></p>
+      </div>
+    </div>
+  </div>
+  </body>
+</div>
