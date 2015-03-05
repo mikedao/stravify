@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       session[:bikes] = bikes
+      session[:clubs] = clubs
+      session[:ftp] = ftp
+      session[:member_since] = join_date
       redirect_to dashboard_path
     else
       redirect_to root_path
@@ -19,4 +22,17 @@ class SessionsController < ApplicationController
   def bikes
     auth.extra.raw_info.bikes
   end
+
+  def clubs
+    auth.extra.raw_info.clubs
+  end
+
+  def ftp
+    auth.extra.raw_info.ftp
+  end
+
+  def join_date
+    auth.extra.raw_info.created_at
+  end
+
 end

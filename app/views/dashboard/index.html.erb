@@ -19,12 +19,26 @@
             </tr>
           <% end %>
         </table>
+        <p>Clubs</p>
+        <table class="table table-bordered table-striped table-condensed table-responsive">
+          <th></th>
+          <th>Club Name</th>
+          <% @clubs.each do |club| %>
+            <tr>
+              <td><%= image_tag club["profile"], class: "image-responsive center-block"%></td>
+              <td><%= club["name"] %></td>
+            </tr>
+          <% end %>
+        </table>
       </div>
       <div class="col-md-3 col-md-offset-1 user-box">
         User Profile
         <%= image_tag current_user.profile, class: "sad-scott img-responsive img-circle center-block" %>
         <p> <%= "#{current_user.first_name} #{current_user.last_name}"%> </p>
-        <p> <%= "#{current_user.city}, #{current_user.state} #{current_user.country}" %></p>
+        <p> <%= "#{current_user.city}, #{current_user.state} " %></p>
+        <p> <%= "#{current_user.country}" %></p>
+        <p> <%= "FTP: #{@ftp}" %></p>
+        <p> <%= "Member Since: #{@member_since}" %></p>
       </div>
     </div>
   </div>
