@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "/test_user", to: "static_pages#test_user"
   get "/dashboard", to: "dashboard#index"
-  get "/bikedata", to: "data#bikedata", :defaults => { :format => "json" }
+  get "/bikedata", to: "data#bikedata", defaults: { :format => "json" }
 
 end

@@ -1,8 +1,8 @@
 $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
-           url: 'bikedata',
-           dataType: 'json',
+           url: "bikedata",
+           dataType: "json",
            success: function (data) {
                draw(data);
            },
@@ -35,8 +35,8 @@ function draw(data) {
         .attr("width", x)
         .attr("height", barHeight - 1)
         .style("fill", function (d) {
-                   return color(d)
-               })
+                   return color(d);
+               });
 
     bar.append("text")
         .attr("x", function (d) {
@@ -51,5 +51,5 @@ function draw(data) {
 }
 
 function error() {
-    console.log("error")
+    console.log("error");
 }

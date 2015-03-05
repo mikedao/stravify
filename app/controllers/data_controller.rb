@@ -4,7 +4,6 @@ class DataController < ApplicationController
       bike["distance"]
     end.sort
 
-    render :json => bike_distances
+    render json: bike_distances
   end
-
 end
