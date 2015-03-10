@@ -12,7 +12,7 @@ $.ajax({
        });
 
 function draw(data) {
-    var color = d3.scale.category20b();
+    var color = d3.scale.category10();
     var width = 420,
         barHeight = 20;
 
@@ -40,13 +40,13 @@ function draw(data) {
 
     bar.append("text")
         .attr("x", function (d) {
-                  return x(d) - 10;
+                  return x(d) - 60;
               })
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
-        .style("fill", "white")
+        .style("fill", "black")
         .text(function (d) {
-                  return d;
+                  return d + "km";
               });
 }
 

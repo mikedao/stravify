@@ -10,6 +10,7 @@ body {
   padding-top: 60px;
   background: url('<%= asset_path("cobbles.jpg")%>')no-repeat center center fixed;
   background-size: cover;
+  background-color: black;
 }
 
 
@@ -24,10 +25,21 @@ body {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  text-shadow: 2px 2px 3px black;
+}
+
+.logout a {
+  float: right;
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: white;
+  padding-top: 13px;
+  text-decoration: none;
+
 }
 
 .navbar {
-  background-color: #D23200;
+  background-color: #FB3300;
 }
 /* front page text */
 .front-page-text {
@@ -65,16 +77,71 @@ span.welcome-text h1 {
 
 // User page data
 
-.bike-data {
+
+.bike-chart {
   margin-top: 40px;
+  padding: 20px;
+  color: black;
   background-color: white;
+  border-radius: 10px;
 }
 
+.bike-data {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.club-part {
+  margin-top: 20px;
+}
+
+.user-part {
+  margin-bottom: 40px;
+}
+
+.indiv-club {
+  margin-top: 20px;
+}
+
+.club-name {
+margin-bottom: 20px;
+}
 
 .user-box {
   background-color: #ffffff;
-  max-height: 600px;
   margin-top: 40px;
-
+  border-radius: 20px;
 }
 
+.ftp-part {
+  color: #FB3300;
+  font-size: 64px;
+  font-weight: 900;
+  text-shadow: 2px 2px 2px black;
+}
+
+// footer stuff
+
+.footer {
+  background-color: black;
+  min-height: 75px;
+  margin-top: 45px;
+  padding: 15px;
+  color: white;
+}
+
+.footer a {
+  text-decoration: none;
+}
+.footer ul {
+  float: right;
+  list-style: none;
+}
+.footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+small.credits {
+  padding-top: 5px;
+}
