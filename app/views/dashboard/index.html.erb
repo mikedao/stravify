@@ -48,6 +48,26 @@
         </div>
       </div>
     </div>
+    <div class="col-md-10 col-md-offset-1 activity-data">
+      <h2>ACTIVITIES</h2>
+      <table class="table table-bordered table-striped table-condensed table-responsive activity-table">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Elapsed Time</th>
+        <th>Elevation Gain</th>
+        <th>Distance</th>
+        <% @activities.each do |activity| %>
+          <tr>
+            <td><%= activity.date %></td>
+            <td><%= activity.name %></td>
+            <td><%= activity.elapsed_time %></td>
+            <td><%= activity.total_elevation_gain %></td>
+            <td><%= activity.distance %></td>
+          </tr>
+        <% end %>
+      </table>
+      <p>Total Activities: <%= @activities.count %></p>
+    </div>
   </div>
 </div>
 </body>
