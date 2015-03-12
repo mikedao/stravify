@@ -4,7 +4,7 @@ class StravaService
   def initialize(key)
     header_key = "Bearer #{key}"
     @connection = Faraday.new(url: "https://www.strava.com/api/v3")
-    @connection.headers = {'Authorization' => header_key}
+    @connection.headers = { "Authorization" => header_key }
   end
 
   def activities

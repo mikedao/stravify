@@ -1,5 +1,4 @@
 class Activity
-
   def self.service(key)
     @service = StravaService.new(key)
   end
@@ -10,9 +9,7 @@ class Activity
     end
   end
 
-
   def self._build_object(data)
     OpenStruct.new(data)
   end
-
 end
