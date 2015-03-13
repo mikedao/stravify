@@ -10,6 +10,13 @@ class Activity
   end
 
   def self._build_object(data)
-    OpenStruct.new(data)
+    activity = OpenStruct.new(data)
+    activity.name = data["name"]
+    activity.start_date = Time.new(data["start_date"][0..3],
+                                   data["start_date"][5..6],
+                                   data["start_date"][8..9])
+    activity.elapsed_time = "#{data['elapsed_time'] / 3600}h #{(data['elapsed_time'] / 60) % 60}m"
+    activity.distance = (data["distance"] / 1000).round(1)
+    activity
   end
 end
