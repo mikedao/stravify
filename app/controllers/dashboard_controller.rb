@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   def index
     @bikes = sorted_bikes
     @clubs = session[:clubs]
-    @ftp = session[:ftp]
+    @ftp = session[:ftp] || 0
     @member_since = session[:member_since][0..3]
     @activities = Activity.all(current_user.token)
   end
