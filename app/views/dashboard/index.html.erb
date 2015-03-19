@@ -12,7 +12,7 @@
     <div class="col-md-8 focus center-block">
       <h4><strong>This Week:</strong></h4>
       <div class="col-md-2 focus-data time text-center">
-        <p><span class="ftp-part"><%= current_user.time_ridden/3600 + 1 %></span></p>
+        <p><span class="ftp-part"><%= (current_user.time_ridden/3600) == 0 ? 1 : (current_user.time_ridden/3600)  %></span></p>
         <span class="text-center focus-label">Time</span>
       </div>
       <div class="col-md-2 focus-data ftp text-center">
