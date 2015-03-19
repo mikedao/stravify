@@ -6,7 +6,8 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "puma"
-gem "faraday"
+gem "faraday", "< 0.9.0"
+gem "responders"
 
 # Gems for OAuth
 gem "omniauth-strava"
@@ -32,6 +33,8 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "pry"
+  gem "awesome_print", require:"ap"
+  gem "quiet_assets"
 end
 
 group :development do

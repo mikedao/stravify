@@ -11,8 +11,13 @@ class User < ActiveRecord::Base
     user.profile = auth.extra.raw_info.profile
     user.token = auth.credentials.token
     user.sex = auth.extra.raw_info.sex
+    user.ftp = auth.extra.raw_info.ftp
 
     user.save
     user
+  end
+
+  def api_data
+    { ftp: self.ftp, time: self.time_ridden, distance: self.distance_ridden }
   end
 end

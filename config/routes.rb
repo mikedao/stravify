@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   get "/bikedata", to: "data#bikedata", defaults: { :format => "json" }
   get "/logout", to: "sessions#destroy"
 
+  namespace :api do
+    namespace :v1 do
+      get "/user", to: "user#show"
+    end
+  end
 end
