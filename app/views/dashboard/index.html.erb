@@ -10,38 +10,39 @@
   <body>
   <div class="container">
     <div class="col-md-8 focus center-block">
-      <h4><strong>This Week:</strong></h4>
+      <h2> THIS WEEK</h2>
       <div class="col-md-2 focus-data time text-center">
         <p><span class="ftp-part"><%= (current_user.time_ridden/3600) == 0 ? 1 : (current_user.time_ridden/3600)  %></span></p>
-        <span class="text-center focus-label">Time</span>
+        <span class="text-center focus-label">Time (Hours)</span>
       </div>
       <div class="col-md-2 focus-data ftp text-center">
         <p><span class="ftp-part"><%= current_user.ftp %></span></p>
-        <span class="text-center focus-label">FTP</span>
+        <span class="text-center focus-label">FTP<p> (Watts)</p></span>
       </div>
       <div class="col-md-2 focus-data text-center">
         <p><span class="ftp-part"><%= current_user.distance_ridden %></span></p>
-        <span class="text-center focus-label">Distance</span>
+        <span class="text-center focus-label">Distance (km) </span>
       </div>
-          <h4 class="bike_label"><strong>Bikes</strong></h4>
-          <center><svg id="bikedata"></svg></center>
-          <table class="table table-bordered table-striped table-condensed table-responsive bike-data">
-            <th>Bike Name</th>
-            <th>Distance (km)</th>
-            <% @bikes.each do |bike| %>
-              <tr>
-                <td><%= bike["name"] %></td>
-                <td><%= (bike["distance"]/1000).round(0) %></td>
-              </tr>
-            <% end %>
-          </table>
-
+      <div class="bike-stuff-container">
+        <div class="col-md-8"><h2>BIKES</h2></div>
+        <center><svg id="bikedata"></svg></center>
+        <table class="table table-bordered table-striped table-condensed table-responsive bike-data">
+          <th>Bike Name</th>
+          <th>Distance (km)</th>
+          <% @bikes.each do |bike| %>
+            <tr>
+              <td><%= bike["name"] %></td>
+              <td><%= (bike["distance"]/1000).round(0) %></td>
+            </tr>
+          <% end %>
+        </table>
       </div>
+    </div>
     <div class="col-md-2 col-md-offset-1 user-box">
       <div class="user-part">
-        <h4><strong>User Profile</strong></h4>
+        <h4><strong><%= "#{current_user.first_name} #{current_user.last_name}"%></strong></h4>
         <%= image_tag current_user.profile, class: "sad-scott img-responsive img-circle center-block" %>
-        <p> <%= "#{current_user.first_name} #{current_user.last_name}"%> </p>
+        <p>  </p>
         <p> <%= "#{current_user.city}, #{current_user.state} " %></p>
         <p> <%= "#{current_user.country}" %></p>
         <p> <%= "Strava Member Since: #{@member_since}" %></p>
@@ -77,16 +78,15 @@
         <th>Elevation Gain</th>
         <th>Distance</th>
         <% @activities.each do |activity| %>
-            <tr>
-              <td><%= activity.start_date.strftime("%a %b %e %Y") %></td>
-              <td><%= activity.name %></td>
-              <td><%= activity.elapsed_time %></td>
-              <td><%= activity.total_elevation_gain %></td>
-              <td><%= activity.distance %></td>
-            </tr>
+          <tr>
+            <td><%= activity.start_date.strftime("%a %b %e %Y") %></td>
+            <td><%= activity.name %></td>
+            <td><%= activity.elapsed_time %></td>
+            <td><%= activity.total_elevation_gain %></td>
+            <td><%= activity.distance %></td>
+          </tr>
         <% end %>
       </table>
-      <p>Total Activities: <%= @activities.count %></p>
     </div>
   </div>
   </body>
