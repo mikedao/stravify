@@ -10,6 +10,7 @@
   <body>
   <div class="container">
     <div class="col-md-8 focus center-block">
+      <h4><strong>This Week:</strong></h4>
       <div class="col-md-2 focus-data time text-center">
         <p><span class="ftp-part"><%= current_user.time_ridden/3600 + 1 %></span></p>
         <span class="text-center focus-label">Time</span>
@@ -45,7 +46,8 @@
         <p> <%= "#{current_user.country}" %></p>
         <p> <%= "Strava Member Since: #{@member_since}" %></p>
       </div>
-    </div> <div class="col-md-11 activity-data">
+    </div>
+    <div class="col-md-11 activity-data">
       <h2> RECENT ACTIVITIES</h2>
       <table class="table table-bordered table-striped table-condensed table-responsive activity-table">
         <th>Date</th>
@@ -63,6 +65,25 @@
               <td><%= activity.distance %></td>
             </tr>
           <% end %>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-11 activity-data all">
+      <h2> ALL ACTIVITIES</h2>
+      <table class="table table-bordered table-striped table-condensed table-responsive activity-table">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Elapsed Time</th>
+        <th>Elevation Gain</th>
+        <th>Distance</th>
+        <% @activities.each do |activity| %>
+            <tr>
+              <td><%= activity.start_date.strftime("%a %b %e %Y") %></td>
+              <td><%= activity.name %></td>
+              <td><%= activity.elapsed_time %></td>
+              <td><%= activity.total_elevation_gain %></td>
+              <td><%= activity.distance %></td>
+            </tr>
         <% end %>
       </table>
       <p>Total Activities: <%= @activities.count %></p>
