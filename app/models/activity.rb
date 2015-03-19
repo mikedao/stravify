@@ -21,5 +21,4 @@ class Activity
     activity.recent = true if activity.start_date > Time.now - 7.days
     activity
   end
-
 end

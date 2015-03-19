@@ -13,12 +13,12 @@ class DashboardController < ApplicationController
       activity.recent == true
     end
 
-    current_user.time_ridden = recent.reduce(0) do |sum, activity|
-      sum += activity.raw_time
+    current_user.time_ridden = recent.inject(0) do |sum, activity|
+      sum + activity.raw_time
     end
 
-    current_user.distance_ridden = recent.reduce(0) do |sum, activity|
-      sum+= activity.distance
+    current_user.distance_ridden = recent.inject(0) do |sum, activity|
+      sum + activity.distance
     end
     current_user.save
   end

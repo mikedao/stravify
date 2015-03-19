@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
   end
 
   def api_data
-    { ftp: self.ftp, time: self.time_ridden, distance: self.distance_ridden }
+    { ftp: ftp, time: time_ridden, distance: distance_ridden }
   end
 end
