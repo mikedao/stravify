@@ -57,13 +57,15 @@
         <th>Elevation Gain</th>
         <th>Distance</th>
         <% @activities.each do |activity| %>
-          <tr>
-            <td><%= activity.start_date.strftime("%a %b %e %Y") %></td>
-            <td><%= activity.name %></td>
-            <td><%= activity.elapsed_time %></td>
-            <td><%= activity.total_elevation_gain %></td>
-            <td><%= activity.distance %></td>
-          </tr>
+          <% if activity.recent == true %>
+            <tr>
+              <td><%= activity.start_date.strftime("%a %b %e %Y") %></td>
+              <td><%= activity.name %></td>
+              <td><%= activity.elapsed_time %></td>
+              <td><%= activity.total_elevation_gain %></td>
+              <td><%= activity.distance %></td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
       <p>Total Activities: <%= @activities.count %></p>
