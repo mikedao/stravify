@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe User, :type => :model do
-
+RSpec.describe User, type: :model do
   it "provides api data" do
     user = User.create(first_name: "Mike",
                        ftp: 205,
@@ -12,5 +11,4 @@ RSpec.describe User, :type => :model do
     expect(user.api_data[:time]).to eq(100)
     expect(user.api_data[:distance]).to eq(200)
   end
-
 end
