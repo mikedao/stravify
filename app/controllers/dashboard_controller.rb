@@ -1,29 +1,26 @@
 class DashboardController < ApplicationController
-  after_action :save_metrics_to_database
   def index
     @bikes = sorted_bikes
     @clubs = session[:clubs]
-    @ftp = session[:ftp]
+    @ftp   = session[:ftp]
     @member_since = session[:member_since][0..3]
-    @activities = Activity.all(current_user.token)
-  end
-
-  def save_metrics_to_database
-    recent = @activities.select do |activity|
-      activity.recent == true
-    end
-
-    current_user.time_ridden = recent.inject(0) do |sum, activity|
-      sum + activity.raw_time
-    end
-
-    current_user.distance_ridden = recent.inject(0) do |sum, activity|
-      sum + activity.distance
-    end
-    current_user.save
+    @activities   = activity.all
+    update_user_data(current_user, activity)
   end
 
   private
+
+  def activity
+    @activity ||= Activity.new(
+      StravaService.new(current_user.token).activities
+    )
+  end
+
+  def update_user_data(user, activity)
+    user.time_ridden     = activity.time_ridden
+    user.distance_ridden = activity.distance_ridden
+    user.save
+  end
 
   def sorted_bikes
     session[:bikes].sort_by do |bike|

@@ -1,15 +1,31 @@
 class Activity
-  def self.service(key)
-    @service = StravaService.new(key)
+  def initialize(raw_activities)
+    @raw_activities = raw_activities
   end
 
-  def self.all(key)
-    service(key).activities.map do |activity|
-      _build_object(activity)
+  def all
+    @activities ||= @raw_activities.map do |activity|
+      build_object(activity)
     end
   end
 
-  def self._build_object(data)
+  def recent
+    @recent ||= all.select(&:recent)
+  end
+
+  def time_ridden
+    @time_ridden ||= recent.map(&:raw_time).inject(0, :+)
+  end
+
+  def distance_ridden
+    @distance_ridden ||= recent.map(&:distance).inject(0, :+)
+  end
+
+  private
+
+  attr_reader :service
+
+  def build_object(data)
     activity = OpenStruct.new(data)
     activity.name = data["name"]
     activity.start_date = Time.new(data["start_date"][0..3],
