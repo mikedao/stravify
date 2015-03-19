@@ -11,7 +11,7 @@
   <div class="container">
     <div class="col-md-8 focus center-block">
       <div class="col-md-2 focus-data time text-center">
-        <p><span class="ftp-part"><%= current_user.time_ridden %></span></p>
+        <p><span class="ftp-part"><%= current_user.time_ridden/3600 + 1 %></span></p>
         <span class="text-center focus-label">Time</span>
       </div>
       <div class="col-md-2 focus-data ftp text-center">
