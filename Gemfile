@@ -8,6 +8,7 @@ gem "coffee-rails", "~> 4.1.0"
 gem "puma"
 gem "faraday", "< 0.9.0"
 gem "responders"
+gem "awesome_print", require:"ap"
 
 # Gems for OAuth
 gem "omniauth-strava"
@@ -33,7 +34,6 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "pry"
-  gem "awesome_print", require:"ap"
   gem "quiet_assets"
 end
 
